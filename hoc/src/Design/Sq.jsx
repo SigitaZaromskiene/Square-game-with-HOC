@@ -12,14 +12,25 @@ function Sq({ sq, setSq }) {
       className={sq.spin === true ? "spin" : ""}
       style={{
         backgroundColor: sq.color,
-        color: "black",
+        color: "white",
         height: "150px",
         width: "150px",
         justifySelf: "center",
+        padding: "25px",
+        fontSize: "24px",
+        textAlign: "center",
       }}
     >
       {sq.number}
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "5px",
+          marginTop: "10px",
+        }}
+      >
         <DeleteSq title="Delete" sq={sq} setSq={setSq} />
         <Spin title="Spin" setSq={setSq} sq={sq} />
         <Clone title="Clone" setSq={setSq} sq={sq} />
