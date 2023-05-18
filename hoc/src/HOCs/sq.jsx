@@ -59,3 +59,22 @@ export const withSortDefault = (Component) => (props) => {
 
   return <Component clickHandler={clickHandler} title={props.title} />;
 };
+
+export const withFilterOver500 = (Component) => (props) => {
+  const clickHandler = () =>
+    props.setSq((sq) =>
+      sq.map((sq) =>
+        sq.number >= 500 ? { ...sq, show: true } : { ...sq, show: false }
+      )
+    );
+
+  return <Component title={props.title} clickHandler={clickHandler} />;
+};
+
+export const withShowAllSq = (Component) => (props) => {
+  const clickHandler = () => {
+    props.setSq((sq) => sq.map((sq) => ({ ...sq, show: true })));
+  };
+
+  return <Component title={props.title} clickHandler={clickHandler} />;
+};

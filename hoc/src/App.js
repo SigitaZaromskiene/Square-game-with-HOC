@@ -5,7 +5,9 @@ import { v4 as uuidv4 } from "uuid";
 import {
   withAdd,
   withDeleteAll,
+  withFilterOver500,
   withRandomColor,
+  withShowAllSq,
   withSortDefault,
   withSortHandler,
 } from "./HOCs/sq";
@@ -14,6 +16,8 @@ import BlueButton from "./Design/BlueButton";
 import PurpleButton from "./Design/PurpleButton";
 import PinkButton from "./Design/PinkButton";
 import YellowButton from "./Design/YellowButton";
+import OliveButton from "./Design/OliveButton";
+import RedButton from "./Design/RedButton";
 
 function App() {
   const [sq, setSq] = useState([]);
@@ -23,6 +27,8 @@ function App() {
   const PurpleBtnRandomColor = withRandomColor(PurpleButton);
   const PinkButtonWithSortHandler = withSortHandler(PinkButton);
   const YellowButtonWithSortDefault = withSortDefault(YellowButton);
+  const OliveButtonFilerOver500 = withFilterOver500(OliveButton);
+  const RedButtonShowAllSq = withShowAllSq(RedButton);
 
   return (
     <div style={{ display: "flex" }}>
@@ -32,6 +38,8 @@ function App() {
         <PurpleBtnRandomColor title="Random Color" setSq={setSq} />
         <PinkButtonWithSortHandler title="Sort" setSq={setSq} />
         <YellowButtonWithSortDefault title="Sort default" setSq={setSq} />
+        <OliveButtonFilerOver500 title="Filter over 500" setSq={setSq} />
+        <RedButtonShowAllSq title="Show all" setSq={setSq} />
       </div>
       <div className="sq-container">
         {sq.map((sq, i) =>
