@@ -1,6 +1,6 @@
-function Button({ title, addBtnHandler }) {
+function Button({ title, btnHandler }) {
   return (
-    <button className="button" onClick={addBtnHandler}>
+    <button className="button" onClick={btnHandler}>
       {title}
     </button>
   );
