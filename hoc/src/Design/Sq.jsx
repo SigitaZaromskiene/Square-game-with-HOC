@@ -1,7 +1,12 @@
 function Sq() {
   return (
     <div
-      style={{ backgroundColor: "green", height: "50px", width: "50px" }}
+      style={{
+        backgroundColor: "green",
+        height: "150px",
+        width: "150px",
+        justifySelf: "center",
+      }}
     ></div>
   );
 }

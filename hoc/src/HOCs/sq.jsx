@@ -17,3 +17,10 @@ export const withAdd = (Component) => (props) => {
 
   return <Component title={props.title} btnHandler={btnHandler}></Component>;
 };
+
+export const withDelete = (Component) => (props) => {
+  const btnHandler = () => {
+    props.setSq((sq) => sq.id !== props.sq.id);
+  };
+  return <Component btnHandler={btnHandler} title={props.title} />;
+};
