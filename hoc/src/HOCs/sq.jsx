@@ -44,3 +44,18 @@ export const withRandomColor = (Component) => (props) => {
 
   return <Component title={props.title} clickHandler={clickHandler} />;
 };
+
+export const withSortHandler = (Component) => (props) => {
+  const clickHandler = () => {
+    props.setSq((sq) => [...sq].sort((a, b) => a.number - b.number));
+  };
+  return <Component title={props.title} clickHandler={clickHandler} />;
+};
+export const withSortDefault = (Component) => (props) => {
+  console.log(props);
+  const clickHandler = () => {
+    props.setSq((sq) => [...sq].sort((a, b) => a.row - b.row));
+  };
+
+  return <Component clickHandler={clickHandler} title={props.title} />;
+};
