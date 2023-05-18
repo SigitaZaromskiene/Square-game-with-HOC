@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import RandomNum from "./randomNum";
+import randomColor from "../Design/randomColor";
 
 export const withAdd = (Component) => (props) => {
   const btnHandler = () => {
@@ -11,6 +12,7 @@ export const withAdd = (Component) => (props) => {
         number: ("" + RandomNum(1, 999)).padStart(3, "0"),
         row: sq.length,
         show: true,
+        color: "green",
       },
     ]);
   };
@@ -18,9 +20,27 @@ export const withAdd = (Component) => (props) => {
   return <Component title={props.title} btnHandler={btnHandler}></Component>;
 };
 
-export const withDelete = (Component) => (props) => {
+export const withDeleteAll = (Component) => (props) => {
   const btnHandler = () => {
-    props.setSq((sq) => sq.id !== props.sq.id);
+    props.setSq([[]]);
   };
   return <Component btnHandler={btnHandler} title={props.title} />;
+};
+
+export const withRandomColor = (Component) => (props) => {
+  const clickHandler = () => {
+    props.setSq((sq) => [
+      ...sq,
+      {
+        id: uuidv4(),
+        spin: false,
+        number: ("" + RandomNum(1, 999)).padStart(3, "0"),
+        row: sq.length,
+        show: true,
+        color: randomColor(),
+      },
+    ]);
+  };
+
+  return <Component title={props.title} clickHandler={clickHandler} />;
 };

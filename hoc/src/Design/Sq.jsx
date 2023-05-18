@@ -1,13 +1,16 @@
-function Sq() {
+function Sq({ sq }) {
   return (
     <div
       style={{
-        backgroundColor: "green",
+        backgroundColor: sq.color,
+        color: "black",
         height: "150px",
         width: "150px",
         justifySelf: "center",
       }}
-    ></div>
+    >
+      {sq.number}
+    </div>
   );
 }
 
