@@ -57,4 +57,19 @@
       background-color: rgb(213, 123, 138);
     }
   }
+
+  .small {
+    height: 20px;
+    width: 50px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: black;
+    padding: 5px;
+    border: 3px solid gray;
+  }
+}
+.spin {
+  animation: App-logo-spin infinite 5s linear;
 }

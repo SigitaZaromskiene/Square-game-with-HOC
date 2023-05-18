@@ -52,7 +52,6 @@ export const withSortHandler = (Component) => (props) => {
   return <Component title={props.title} clickHandler={clickHandler} />;
 };
 export const withSortDefault = (Component) => (props) => {
-  console.log(props);
   const clickHandler = () => {
     props.setSq((sq) => [...sq].sort((a, b) => a.row - b.row));
   };
@@ -74,6 +73,40 @@ export const withFilterOver500 = (Component) => (props) => {
 export const withShowAllSq = (Component) => (props) => {
   const clickHandler = () => {
     props.setSq((sq) => sq.map((sq) => ({ ...sq, show: true })));
+  };
+
+  return <Component title={props.title} clickHandler={clickHandler} />;
+};
+
+export const withDeleteSq = (Component) => (props) => {
+  const clickHandler = () => {
+    props.setSq((sq) => sq.filter((sq) => sq.id !== props.sq.id));
+  };
+  return <Component title={props.title} clickHandler={clickHandler} />;
+};
+
+export const withSpin = (Component) => (props) => {
+  const clickHandler = () => {
+    props.setSq((sq) =>
+      sq.map((sq) =>
+        sq.id === props.sq.id ? { ...sq, spin: true } : { ...sq }
+      )
+    );
+  };
+  return <Component clickHandler={clickHandler} title={props.title} />;
+};
+
+export const withStopSpin = (Component) => (props) => {
+  const clickHandler = () => {
+    props.setSq((sq) => sq.map((s) => ({ ...s, spin: false })));
+  };
+
+  return <Component clickHandler={clickHandler} title={props.title} />;
+};
+
+export const withCloneBtn = (Component) => (props) => {
+  const clickHandler = () => {
+    props.setSq((sq) => [...sq, { ...props.sq, id: uuidv4() }]);
   };
 
   return <Component title={props.title} clickHandler={clickHandler} />;

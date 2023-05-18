@@ -10,6 +10,7 @@ import {
   withShowAllSq,
   withSortDefault,
   withSortHandler,
+  withStopSpin,
 } from "./HOCs/sq";
 import Button from "./Design/Button";
 import BlueButton from "./Design/BlueButton";
@@ -29,6 +30,7 @@ function App() {
   const YellowButtonWithSortDefault = withSortDefault(YellowButton);
   const OliveButtonFilerOver500 = withFilterOver500(OliveButton);
   const RedButtonShowAllSq = withShowAllSq(RedButton);
+  const BlueButtonWithStopSpin = withStopSpin(BlueButton);
 
   return (
     <div style={{ display: "flex" }}>
@@ -40,6 +42,7 @@ function App() {
         <YellowButtonWithSortDefault title="Sort default" setSq={setSq} />
         <OliveButtonFilerOver500 title="Filter over 500" setSq={setSq} />
         <RedButtonShowAllSq title="Show all" setSq={setSq} />
+        <BlueButtonWithStopSpin title="Stop spin" setSq={setSq} />
       </div>
       <div className="sq-container">
         {sq.map((sq, i) =>
