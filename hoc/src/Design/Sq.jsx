@@ -9,7 +9,7 @@ function Sq({ sq, setSq }) {
 
   return (
     <div
-      className={sq.spin === true ? "spin" : ""}
+      className={sq.spin ? "spin" : ""}
       style={{
         backgroundColor: sq.color,
         color: "white",

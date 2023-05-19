@@ -97,11 +97,11 @@ export const withSpin = (Component) => (props) => {
 };
 
 export const withStopSpin = (Component) => (props) => {
-  const clickHandler = () => {
+  const btnHandler = () => {
     props.setSq((sq) => sq.map((s) => ({ ...s, spin: false })));
   };
 
-  return <Component clickHandler={clickHandler} title={props.title} />;
+  return <Component btnHandler={btnHandler} title={props.title} />;
 };
 
 export const withCloneBtn = (Component) => (props) => {
